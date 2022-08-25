@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script defer src="js/main.js"></script>
+    <script defer src="js/index2.js"></script>
     <!-- script de A-Frame version1 1.0.0 -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <!-- script de AR.JS con soporte de marker + location -->
@@ -17,7 +17,7 @@
 <body>
     <!-- <a-scene embedded arjs> -->
     <a-scene>
-        <a-marker preset="hiro" >
+        <a-marker preset="kanji" >
             <a-box height=0.25 width=0.25 depth=0.25 position='0 0 0'  color='#EF2D5E'></a-box>
             <a-box height=0.25 width=0.25 depth=0.25 position='0 0.5 0'  color='#4CC3D9'></a-box>
             <a-box height=0.25 width=0.25 depth=0.25 position='0 -0.5 0' color='#4CC3D9'></a-box>
@@ -26,16 +26,15 @@
             <a-box height=0.25 width=0.25 depth=0.25 position='0 0 0.5'  color='#4CC3D9'></a-box>
             <a-box height=0.25 width=0.25 depth=0.25 position='0 0 -0.5' color='#4CC3D9'></a-box>
         </a-marker>
-        
-        <a-marker preset="kanji" id="randomBoxes"></a-marker>
+
+        <a-marker preset="hiro" id="randomBoxes">
+            <!-- Punto central -->
+            <a-box height=0.25 width=0.25 depth=0.25 position='0 0 0'  color='#EFBD5E'></a-box>
+        </a-marker>
+
         <!-- <a-marker preset="kanji">
             <a-sphere position="0 0 0.5" radius="0.6" color="#EF2D5E"></a-sphere>
-            <a-torus-knot
-            position="0 0 -0.5"
-            radius="0.26"
-            radius-tubular="0.05"
-            animation="property:rotation; to:360 0 0; dur:2000; eading:linear; loop:true">
-            </a-torus-knot>
+            <a-torus-knot position="0 0 -0.5" radius="0.26" radius-tubular="0.05" animation="property:rotation; to:360 0 0; dur:2000; eading:linear; loop:true"></a-torus-knot>
         </a-marker> -->
 
         <!-- <a-marker-camera preset="hiro"></a-marker-camera> -->
