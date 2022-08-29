@@ -1,7 +1,4 @@
-let markerCoche = document.querySelector('#coche');
-let markerMeta = document.querySelector('#meta');
-
-AFRAME.registerComponent("a-meta", {
+AFRAME.registerComponent("a-meta", { //HIRO, NUEVO, LINE
 
     schema: {
         width : {type: "number", default: 0.5},
@@ -10,10 +7,6 @@ AFRAME.registerComponent("a-meta", {
         color : {type: "color", default: "#ACBD5E"},
     },
     init: function () {
-        console.log("MARKER-HANDLER ####################")
-        // console.log("handler", this.el.object3D)
-        // console.log("handlerPosition", this.el.object3D.position)
-
         const {data} = this
         // Create geometry
         this.geometry = new THREE.BoxGeometry(data.width, data.height, data.depth);
@@ -30,15 +23,13 @@ AFRAME.registerComponent("a-meta", {
             console.log("colisión con", e.detail.collidingEntity)
             this.el.getObject3D("mesh").material = new THREE.MeshStandardMaterial({ color: "#FF0000" });
         })
-    },
-    events : {
-        click : function(e){
+        this.el.sceneEl.addEventListener("changePosition", () => {
             cambiarPosicion();
-        }
+        })
     }
 });
 
-AFRAME.registerComponent("a-coche", {
+AFRAME.registerComponent("a-coche", { //KANJI
 
     schema: {
         width : {type: "number", default: 0.2},
@@ -61,16 +52,12 @@ AFRAME.registerComponent("a-coche", {
         this.el.setObject3D("mesh", this.mesh);
     },
     update: function(oldData){
-        const data = this.data
-        //Update also activate in "init", so we dont want UPDATE if it happens
-        // if (Object.keys(oldData).length === 0) { return }
-        console.log("cambio?")
-        // this.mesh.geometry.parameters.width = 0 // console.log(this.mesh.geometry.parameters)
-    },
-    events : {
-        click : function(){
+        this.el.sceneEl.addEventListener("crecimientoActivado", ()=>{
             this.data.status = true;
-        }
+        });
+        this.el.sceneEl.addEventListener('markerLost', () => {
+            this.data.status = false;
+          })
     },
     tick: function (time, timeDelta) {
         // Do something on every scene tick or frame.
@@ -87,9 +74,6 @@ AFRAME.registerComponent("a-coche", {
                 data.status = false
                 showCollisionMessage();
             }
-        }
-        if (data.status && this.el.getAttribute("position") == {x:0, y:0, z:0}) {
-            data.status = false
         }
     }
 });

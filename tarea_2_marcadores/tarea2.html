@@ -14,29 +14,28 @@
     <!-- Should be next forb  scripts from aframe -->
     <script src="tarea2.js"></script>
     <script defer src="tarea2_1.js"></script>
+    <link rel="stylesheet" href="tarea2.css">
 </head>
 <body>
+    <div class="buttons">
+        <button id="a">Cambio de posición</button>
+        <button id="b">Activar crecimiento</button>
+      </div>
     <a-scene >
         <a-marker preset="hiro" id="hiro">
             <a-entity id="meta" a-meta></a-entity>   
+            <a-entity id="line"></a-entity>
             <a-entity id="nuevo">
                 <a-sphere position="0 0 0" radius="0.30" color="#EFCB5E"></a-sphere>
-            </a-entity> 
+            </a-entity>
         </a-marker>
-
-        <!-- <a-sphere id="click" position="0 0 -10" radius="0.25" color="#4CC3D9"></a-sphere> -->
+        
         
         <a-marker preset="kanji" id="kanji">
             <a-entity id="coche" a-coche></a-entity>
         </a-marker>
         
-        <a-entity camera>
-            <a-entity cursor="fuse: true; fuseTimeout: 1"
-            position="0 0 -1"
-            geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
-            material="color: black; shader: flat">
-        </a-entity>
-        </a-entity>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 </html>
