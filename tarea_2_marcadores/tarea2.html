@@ -9,26 +9,32 @@
     <!-- script de A-Frame version1 1.0.0 -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <!-- script de AR.JS con soporte de marker + location -->
-    <!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
     <!-- Should be next forb  scripts from aframe -->
     <script src="tarea2.js"></script>
+    <script defer src="tarea2_1.js"></script>
 </head>
 <body>
-    <a-scene>
-        <a-marker preset="hiro">
-            <!-- <a-entity marker-handler></a-entity>     -->
+    <a-scene >
+        <a-marker preset="hiro" id="hiro">
+            <a-entity id="meta" a-meta></a-entity>   
+            <a-entity id="nuevo">
+                <a-sphere position="0 0 0" radius="0.30" color="#EFCB5E"></a-sphere>
+            </a-entity> 
         </a-marker>
         
-        <a-entity position="-1.5 -1.5 -10" marker-handler></a-entity>    
-        <a-sphere position="0 0 -10" radius="0.25" color="#EFCB5E"></a-sphere>
-        <a-entity position="1.5 1.5 -10" marker-grown></a-entity>
+        <a-entity id="click" a-clicker position="0 0 -10"></a-entity>   
+        <!-- <a-sphere id="click" position="0 0 -10" radius="0.25" color="#4CC3D9"></a-sphere> -->
         
-        <a-marker preset="kanji">
-            <!-- <a-entity marker-grown></a-entity> -->
+        <a-marker preset="kanji" id="kanji">
+            <a-entity id="coche" a-coche></a-entity>
         </a-marker>
         
-        <!-- <a-entity camera></a-entity> -->
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 </html>
+
+<!-- <a-entity position="1.5 1.5 -10" marker-grown></a-entity> -->
+<!-- <a-sphere id="handler" position="0 0 0" radius="0.25" color="#4CC3D9"></a-sphere> -->
