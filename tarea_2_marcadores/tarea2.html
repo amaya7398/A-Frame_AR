@@ -23,15 +23,20 @@
                 <a-sphere position="0 0 0" radius="0.30" color="#EFCB5E"></a-sphere>
             </a-entity> 
         </a-marker>
-        
-        <a-entity id="click" a-clicker position="0 0 -10"></a-entity>   
+
         <!-- <a-sphere id="click" position="0 0 -10" radius="0.25" color="#4CC3D9"></a-sphere> -->
         
         <a-marker preset="kanji" id="kanji">
             <a-entity id="coche" a-coche></a-entity>
         </a-marker>
         
-        <a-entity camera></a-entity>
+        <a-entity camera>
+            <a-entity cursor="fuse: true; fuseTimeout: 1"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+            material="color: black; shader: flat">
+        </a-entity>
+        </a-entity>
     </a-scene>
 </body>
 </html>
