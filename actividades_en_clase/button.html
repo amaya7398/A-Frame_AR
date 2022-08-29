@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+
+    <!-- script de A-Frame version1 1.0.0 -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- script de AR.JS con soporte de marker + location -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+    <script src="button.js"></script>
+    <link rel="stylesheet" type="text/css" href="button.css"/>
+</head>
+
+<script>
+    AFRAME.registerComponent('markerhandler', {
+      init: function () {
+        this.el.sceneEl.addEventListener('markerFound', () => {
+          // redirect to custom URL e.g. google.com
+        //   window.location = 'https://www.google.com/';
+        console.log("found")
+        })
+      }
+    });
+  </script>
+
+<body style="margin : 0px; overflow: hidden;">
+  <div class="buttons">
+    <button id="a" class="button">SAY HI!</button>
+    <button id="b" class="button">SAY BYE!</button>
+  </div>
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+    <!-- <a-marker markerhandler type='barcode' value='7'> -->
+    <a-marker markerhandler type='hiro' value='7'>
+        <a-box position='0 0.5 0' color="yellow"></a-box>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+  </body>
+</html>
