@@ -32,17 +32,19 @@
     <button id="a" class="button">Play</button>
     <button id="b" class="button">Pause</button>
   </div>
-  <a-scene
-    vr-mode-ui="enabled: false;"
+  <a-scene embedded arjs artoolkit>
+    <!-- vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> -->
 
-    <a-sphere id="planet" position="0 0 -10" radius="0.25" color="#4CC3D9"></a-sphere>
-    <a-marker markerhandler preset='hiro' id="hiro">
+    <a-box id="plane" rotation="0 0 0" position="0 0 0" depth="0.5" color="#4CC3D9"></a-box>
+    <a-marker preset='hiro' id="hiro">
         <a-sphere radius="0.15" color="yellow"></a-sphere>
+        <a-entity id="lineX"></a-entity>
+        <a-entity id="lineY"></a-entity>
     </a-marker>
-    <a-marker markerhandler preset='kanji' id="kanji">
+    <a-marker preset='kanji' id="kanji">
         <a-sphere radius="0.15" color="red"></a-sphere>
     </a-marker>
 
