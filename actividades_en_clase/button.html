@@ -29,8 +29,8 @@
 
 <body style="margin : 0px; overflow: hidden;">
   <div class="buttons">
-    <button id="a" class="button">SAY HI!</button>
-    <button id="b" class="button">SAY BYE!</button>
+    <button id="a" class="button">Play</button>
+    <button id="b" class="button">Pause</button>
   </div>
   <a-scene
     vr-mode-ui="enabled: false;"
@@ -38,9 +38,12 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
-    <!-- <a-marker markerhandler type='barcode' value='7'> -->
-    <a-marker markerhandler type='hiro' value='7'>
-        <a-box position='0 0.5 0' color="yellow"></a-box>
+    <a-sphere id="planet" position="0 0 -10" radius="0.25" color="#4CC3D9"></a-sphere>
+    <a-marker markerhandler preset='hiro' id="hiro">
+        <a-sphere radius="0.15" color="yellow"></a-sphere>
+    </a-marker>
+    <a-marker markerhandler preset='kanji' id="kanji">
+        <a-sphere radius="0.15" color="red"></a-sphere>
     </a-marker>
 
     <a-entity camera></a-entity>
