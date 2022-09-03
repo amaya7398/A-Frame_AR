@@ -12,27 +12,22 @@
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
     <script src="tarea3.js"></script>
+    <script src="componentes/randomMove.js"></script>
     <link rel="stylesheet" type="text/css" href="tarea3.css"/>
 </head>
-
-<script>
-    AFRAME.registerComponent('markerhandler', {
-      init: function () {
-        this.el.sceneEl.addEventListener('markerFound', () => {
-          // redirect to custom URL e.g. google.com
-        //   window.location = 'https://www.google.com/';
-        console.log("found")
-        })
-      }
-    });
-  </script>
 
 <body style="margin : 0px; overflow: hidden;">
   <div class="buttons">
     <button id="a" class="button">Play</button>
     <button id="b" class="button">Pause</button>
   </div>
-  <a-scene embedded arjs artoolkit>
+  <div class="coords">
+    <label class="marker">HIRO:<input id="hiroLabel" type="text" readonly value="x: 0, y: 0, z: 0"></label>
+    <label class="marker">KANJI:<input id="kanjiLabel" type="text" readonly value="x: 0, y: 0, z: 0"></label>
+    <label class="marker">PLANE:<input id="planeLabel" type="text" readonly value="x: 0, y: 0, z: 0, width: 0, height: 0"></label>
+  </div>
+
+  <a-scene embedded arjs>
     <!-- vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
